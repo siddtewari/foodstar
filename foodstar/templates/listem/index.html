@@ -1,0 +1,9 @@
+{% if latest_lists_list %}
+	<ul>
+	{% for Lists in latest_lists_list %}
+		<li><a href="/listem/{{Lists.id}}/">{{Lists.title}} </a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No Lists are available.</p>
+{% endif %}
