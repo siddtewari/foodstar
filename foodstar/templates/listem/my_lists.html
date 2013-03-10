@@ -1,0 +1,23 @@
+<h1> {{ poll.question }} </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/polls/{{ poll.id }}/vote/" method="post">
+{% csrf_token %}
+{% for choice in poll.choice_set.all %}
+	<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+	<label for="choice{{ forloop.counter }}">{{ choice.choice }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>
+
+<!--{% if latest_lists_list %}
+	<ul>
+	{% for Lists in latest_lists_list %}
+		<li><a href="/listem/{{Lists.id}}/">{{Lists.title}} </a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No Lists are available.</p>
+{% endif %}
+-->

@@ -5,9 +5,13 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^listem/$', 'listem.views.index'),
-	url(r'^listem/(?P<lists_id>\d+)/$', 'listem.views.detail'),
-	url(r'^listem/(?P<lists_id>\d+)/fresh/$', 'listem.views.fresh'),
+    url(r'^$', 'listem.views.login_user'),
+	url(r'^index/$', 'listem.views.index'),
+    url(r'^logout/$', 'listem.views.logout_user'),
+    url(r'^my_lists/$', 'listem.views.my_lists'),
+    url(r'^create_lists/$', 'listem.views.create_lists'),
+	#url(r'^listem/(?P<lists_id>\d+)/$', 'listem.views.detail'),
+	#url(r'^listem/(?P<lists_id>\d+)/create/$', 'listem.views.fresh'),
 
     # # Examples:
     # url(r'^$', 'foodstar.views.home', name='home'),

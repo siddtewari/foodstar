@@ -1,9 +1,75 @@
-{% if latest_lists_list %}
-	<ul>
-	{% for Lists in latest_lists_list %}
-		<li><a href="/listem/{{Lists.id}}/">{{Lists.title}} </a></li>
-	{% endfor %}
-	</ul>
-{% else %}
-	<p>No Lists are available.</p>
-{% endif %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FoodStar</title>
+		<meta name="author" content="FoodStar">
+		<meta name="description" content="List creating app">
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="#">FoodStar</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li class="active">
+								<a href="/listem">Home</a>
+							</li> 
+							<li>
+								<a href="/my_lists">My Lists</a>
+							</li>
+							<li>
+								<a href="/create_lists">Create New List</a>
+							</li>
+							<li>
+								<a href="/logout">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="hero-unit">
+				<h1>List those lists.</h1>
+				<br>
+				<p>
+					"Insert web app description etc. here!"
+				</p>
+			</div>
+			<div class="row">
+				<div class="span4">
+					<h2>Heading</h2>
+					<p>
+						"Random text here or picture..."
+					<p>
+				</div>
+				<div class="span4">
+					<h2>Heading</h2>
+					<p>
+						"Random text here or picture..."
+					<p>
+				</div>
+				<div class="span4">
+					<h2>Heading</h2>
+					<p>
+						"Random text here or picture..."
+					<p>
+				</div>	
+			</div>
+			<hr>
+			<footer>
+				<p>BSSers for the win.</p>
+				{{ message }}
+			</footer>
+		</div>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+		<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	</body>
+</html>	
