@@ -36,11 +36,21 @@
 		</div>
 		<div class="container">
 			<div class="hero-unit">
-				<h1>List those lists.</h1>
-				<br>
+				<h1>FoodStar</h1>
+					{% if latest_lists_list %}
+					<h3>Current Lists</h3>
+						{% for Lists in latest_lists_list %}
+						<a href="/listem/{{Lists.id}}/">{{Lists.title}} </a>
+						{% endfor %}
+					{% else %}
 				<p>
-					"Insert web app description etc. here!"
+					You haven't created any lists yet!
 				</p>
+				<p>
+					Get Started 
+				</p>
+				{% endif %}
+				<br>
 			</div>
 			<div class="row">
 				<div class="span4">
