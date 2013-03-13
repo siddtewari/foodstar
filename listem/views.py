@@ -7,7 +7,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-	return render_to_response('listem/index.html', context_instance=RequestContext(request))
+	latest_lists_list = Lists.objects.all()
+	return render_to_response('listem/index.html', {'latest_lists_list': latest_lists_list}, context_instance=RequestContext(request))
 
 
 def login_user(request):
@@ -25,21 +26,19 @@ def login_user(request):
 				message = "You're account is not active, please contact the site."
 		else:
 			message = "Try Again."
-	return render_to_response('listem/login.html', {"message":message}, context_instance=RequestContext(request))			
-
+	return render_to_response('listem/login.html', {"message":message}, context_instance=RequestContext(request))
 
 def logout_user(request):
 	logout(request)
 	return HttpResponse("You are successfully logged out.")
 
-
 @login_required
 def my_lists(request):
-    #return HttpResponse("You're looking at list %s." % lists_id)
-    return HttpResponse("My Lists!")
-
+	latest_lists_list = Lists.objects.all()
+	return render_to_response('listem/my_lists.html', {'latest_lists_list': latest_lists_list})
 
 @login_required
 def create_lists(request):
+
     #return HttpResponse("You're looking at a fresh new list %s." % lists_id)
     return HttpResponse("Create new lists!")
